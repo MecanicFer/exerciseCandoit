@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Inicio</title>
+
+	<!-- Tab icon -->
+	<link rel="icon" href="../static/imgs/LogoBlancoLFAP.png" th:href="@{/imgs/LogoBlancoLFAP.png}" />
+
+	<!-- Bootstrap core CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+	<link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/">
+	<link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/footers/">
+
+	<!-- js effect for images -->
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link rel="stylesheet" type="text/css" media="all" href="../static/css/mensajeStarwars.css"
+		th:href="@{/css/mensajeStarwars.css}" />
+	<link rel="stylesheet" type="text/css" media="all" href="../static/css/bootstrap.min.css"
+		th:href="@{/css/bootstrap.min.css}" />
+	<link rel="stylesheet" type="text/css" media="all" href="../static/css/PrincipalPage.css"
+		th:href="@{/css/PrincipalPage.css}" />
+	<link rel="stylesheet" type="text/css" media="all" href="../static/css/efectoOvni.css"
+		th:href="@{/css/efectoOvni.css}" />
+	<!-- Custom Js for this template -->
+	<script href="../static/resources/JavaScript/efectoOvni.js"
+		th:href="@{/resources/JavaScript/efectoOvni.js}"></script>
+
+</head>
+
+<body>
+
+	<header>
+		<!-- the next code is about navbar of bootstrap -->
+		<nav class="navbar navbar-expand-lg fixed-top bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#" th:href="@{/}" />
+				<!-- Nav bar icon -->
+				<img src="../static/imgs/LogoBlackLFAP.png" th:src="@{/imgs/LogoBlackLFAP.png}" alt="" width="40"
+					height="40" />
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span> Menú
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item" sec:authorize="isAuthenticated()">
+							<a class="nav-link" href="#" th:href="@{vistasAdmin/contacts}" />Usuarios</a>
+						</li>
+						<li class="nav-item" sec:authorize="isAuthenticated()">
+							<a class="nav-link" href="#" th:href="@{/vistasUser/weather}" />Clima</a>
+						<li class="nav-item">
+							<a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{vistasUser/weather}">
+								<img src="../static/imgs/logoClima.png" th:src="@{/imgs/logoClima.png}" alt=""
+									width="30" height="30" />
+							</a>
+						</li>
+					</ul>
+				</div>
+				<form class="d-flex" role="" sec:authorize="isAuthenticated()">
+					<a href="../templates/login.html" th:href="@{/logout}" class="btn btn-outline-success" />Cerrar
+					sesión</a>
+				</form>
+			</div>
+		</nav>
+	</header>
+	<br>
+	<br>
+	<br>
+	<br>
+	<main class="container d-flex justify-content-center">
+		<div class="card border-info mb-3" data-aos="zoom-in" data-aos-duration="1500" style="max-width: 300px;">
+			<div class="row g-0">
+				<div class="col-md-8">
+					<img id="ovni" class="ovni img-fluid" width="500px" height="300px"
+						src="../static/imgs/logoClima.png" th:src="@{/imgs/logoClima.png}">
+				</div>
+				<div class="card-body">
+					<h4 class="card-title">BIENVENIDO</h4>
+					<p class="card-text">Quieres ver el estado del clima?</p>
+					<p class="card-text">¡¡ click abajo ¡¡¡</p>
+					<form class="d-flex" role="">
+						<a href="#" th:href="@{/vistasUser/weather}" class="btn btn-outline-success" />Ver Clima</a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+</body>
+
+</html>

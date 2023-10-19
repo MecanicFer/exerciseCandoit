@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+	<meta charset="utf-8">
+	<title>Clima</title>
+	
+	 <!-- Tab icon -->
+    <link rel="icon" href="../static/imgs/LogoBlancoLFAP.png" th:href="@{/imgs/LogoBlancoLFAP.png}"/>
+
+	 <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous"> 
+	<link rel="stylesheet" type="text/css" media="all" href="../static/css/styleWeather.css" th:href="@{/css/styleWeather.css}" />
+	<link rel="stylesheet" type="text/css" media="all" href="../static/css/efectoOvni.css" th:href="@{/css/efectoOvni.css}"/>
+
+	<!-- Custom Js for this template -->
+    <script href="../static/resources/JavaScript/efectoOvni.js" th:href="@{/resources/JavaScript/efectoOvni.js}"></script>
+    
+</head>
+
+<body>
+	<div class="container">
+		<div class="logo-container">
+			<img id="ovni" class="ovni" width="20%" height="20%" src="../static/imgs/logoClima.png" th:src="@{/imgs/logoClima.png}"
+				alt="logoClima.png">
+		</div>
+		<br>
+		<br>
+		<br>
+		<h1 class="mt-4 text-center">Actualización del clima</h1>
+		<br>
+		<div class="text-right">
+			<a class="btn btn-primary" th:href="@{/}">Regresar</a>
+		</div>
+		<br>
+		<div class="table-responsive">
+			<table class="table table-striped table-bordered table-hover">
+				<thead class="thead-dark">
+					<tr>
+						<th class="text-center">Provincia</th>
+						<th class="text-center">Ciudad</th>
+						<th class="text-center">Temperatura</th>
+						<th class="text-center">Latitud</th>
+						<th class="text-center">Longitud</th>
+						<th class="text-center">Fecha/Hora</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="data : ${weatherDataList}">
+						<td class="text-center" th:text="${data.province}"></td>
+						<td class="text-center" th:text="${data.city}"></td>
+						<td class="text-center" th:text="${data.temperature}"></td>
+						<td class="text-center" th:text="${data.lat}"></td>
+						<td class="text-center" th:text="${data.lon}"></td>
+						<td class="text-center" th:text="${#dates.format(data.timestamp, 'dd-MM-yyyy HH:mm')}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- Latest compiled and minified JavaScript (optional) -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<!-- Animation -->
+  <script>
+    window.onload = function() {
+      flyOvni();
+    }
+  </script>
+</body>
+
+</html>
