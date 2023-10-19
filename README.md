@@ -10,7 +10,7 @@ obtención de datos meteorológicos de un servicio externo.
 Asegúrate de tener instalado lo siguiente:
 - Java Development Kit (JDK)
 - Apache Maven
-- Un IDE de Java (Eclipse, IntelliJ, etc.)
+- Un IDE de Java (SpringBoot)
 
 ### Pasos para Configurar el Proyecto
 
